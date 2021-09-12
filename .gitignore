@@ -19,6 +19,11 @@ local.properties
 .settings/
 .loadpath
 
+##intellj
+.idea/
+out/
+space-invaders.iml
+
 # External tool builders
 .externalToolBuilders/
 
