@@ -2,6 +2,25 @@
 
 ## Todo
 
+### general -- new
+
+1. Add dying effect
+   - virbration effect, etc
+2. Add SFX & BGM
+   - dynamic sound effect, etc
+3. Display HP Color
+   - identifying enemy's hp state, bullet count, etc
+4. Add Pause function
+   - pausing game by pressing ESC key, etc
+5. Add Setting function
+   - screen resizing, game speed selecting, etc
+6. Add various monsters
+   - diversifying monster patterns, boss monsters, etc
+7. Add Game Summary
+   - game rule, manual, etc
+
+### old
+
 1.  **Add player dying effect**
 
         Add a vibration effect when a player dies
