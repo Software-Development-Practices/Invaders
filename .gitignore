@@ -170,5 +170,7 @@ pip-log.txt
 #############
 
 log*
-*.ttf
 .checkstyle
+/out/
+/.idea/
+/space-invaders.iml
