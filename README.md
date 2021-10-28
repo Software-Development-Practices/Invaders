@@ -1,5 +1,20 @@
 # Space Invaders
 
+## Convention
+
+### Commit Convention
+
+- task 하나 : 하나의 브랜치 = 1 : 1 로 작업을 한다.
+- task 의 하위 이슈(하위 작업)가 생길 경우 브랜치는 생성하지 않는다. (미정)
+- 커밋 메세지 첫 줄 컨벤션은 다음과 같다.
+  - [헤더] [SETB-{issue number}] 커밋 메세지
+  - 헤더 종류는 다음과 같다.
+    - add: 기능 구현
+    - fix: 코드/버그 수정
+    - hofix: hotfix 브랜치에서 생성되는 모든 커밋 헤더
+    - docs: 문서 작업
+    - PR: PR 생성할 때 붙여주는 헤더
+
 ## Todo
 
 ### general -- new
