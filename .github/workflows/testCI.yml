@@ -15,9 +15,15 @@ jobs:
         with:
           java-version: 16
 
-      # Gradle test를 실행한다
       - name: compile test file
-        run: javac -d out/test -cp ./lib/junit-platform-console-standalone-1.8.1.jar ./test/testPackage/MyClassTest.java
+        run: javac -d out/test -cp ./lib/junit-platform-console-standalone-1.8.1.jar ./test/**/*.java
 
       - name: test junit
-        run: java -jar ./lib/junit-platform-console-standalone-1.8.1.jar --class-path out/test --scan-class-path
+        run: java -jar ./lib/junit-platform-console-standalone-1.8.1.jar --class-path out/test --include-classname='.*'  --scan-class-path --reports-dir=out/test-result
+
+      # 테스트 후 Result를 보기위해 Publish Unit Test Results step 추가
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: ${{ always() }}  # 테스트가 실패하여도 Report를 보기 위해 `always`로 설정
+        with:
+          files: out/test-results/**/*.xml
