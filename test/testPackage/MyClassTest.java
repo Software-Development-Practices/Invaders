@@ -9,7 +9,7 @@ import testPackage.TestFile;
 public class MyClassTest {
 
     @Test
-    @DisplayName("Add Test")
+    @DisplayName("지금은 성공하지만 병합되면 실패할 테스트")
     public void addition() {
         int _num = TestFile.getNum();
 
