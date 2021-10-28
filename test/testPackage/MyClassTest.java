@@ -11,7 +11,7 @@ public class MyClassTest {
     @Test
     @DisplayName("Add Test")
     public void addition() {
-        assertEquals(2, num - 1);
+        assertEquals(2, num + 2);
     }
 
 }
