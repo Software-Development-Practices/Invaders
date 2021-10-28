@@ -1,7 +1,7 @@
 package testPackage;
 
 public class TestFile {
-    private static int num = 0;
+    private static int num = 999;
 
     public static int getNum() {
         return num;
