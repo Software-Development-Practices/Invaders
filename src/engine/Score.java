@@ -1,7 +1,7 @@
 package engine;
 
 /**
- * Implements a high score record.
+ * Implements a high score record. 높은 점수 기록을 구현합니다.
  * 
  * @author <a href="mailto:RobertoIA1987@gmail.com">Roberto Izquierdo Amo</a>
  * 
@@ -16,10 +16,8 @@ public class Score implements Comparable<Score> {
 	/**
 	 * Constructor.
 	 * 
-	 * @param name
-	 *            Player name, three letters.
-	 * @param score
-	 *            Player score.
+	 * @param name  Player name, three letters.
+	 * @param score Player score.
 	 */
 	public Score(final String name, final int score) {
 		this.name = name;
@@ -47,15 +45,13 @@ public class Score implements Comparable<Score> {
 	/**
 	 * Orders the scores descending by score.
 	 * 
-	 * @param score
-	 *            Score to compare the current one with.
+	 * @param score Score to compare the current one with.
 	 * @return Comparison between the two scores. Positive if the current one is
 	 *         smaller, positive if its bigger, zero if its the same.
 	 */
 	@Override
 	public final int compareTo(final Score score) {
-		int comparison = this.score < score.getScore() ? 1 : this.score > score
-				.getScore() ? -1 : 0;
+		int comparison = this.score < score.getScore() ? 1 : this.score > score.getScore() ? -1 : 0;
 		return comparison;
 	}
 

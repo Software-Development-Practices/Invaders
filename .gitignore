@@ -152,7 +152,7 @@ develop-eggs
 # Installer logs
 pip-log.txt
 
-# Unit testPackage / coverage reports
+# Unit test / coverage reports
 .coverage
 .tox
 
@@ -170,6 +170,7 @@ pip-log.txt
 #############
 
 log*
+*.ttf
 .checkstyle
 /out/
 /.idea/
