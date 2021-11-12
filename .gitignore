@@ -2,6 +2,9 @@
 ## Eclipse
 #################
 
+invaders.jar
+scores
+
 *.pydevproject
 .project
 .metadata
@@ -169,3 +172,6 @@ pip-log.txt
 log*
 *.ttf
 .checkstyle
+/out/
+/.idea/
+/space-invaders.iml

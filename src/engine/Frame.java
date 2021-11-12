@@ -7,8 +7,7 @@ import javax.swing.JFrame;
 import screen.Screen;
 
 /**
- * Implements a frame to show screens on.
- * 화면을 표시할 프레임을 구현합니다.
+ * Implements a frame to show screens on. 화면을 표시할 프레임을 구현합니다.
  * 
  * @author <a href="mailto:RobertoIA1987@gmail.com">Roberto Izquierdo Amo</a>
  * 
@@ -26,10 +25,8 @@ public class Frame extends JFrame {
 	/**
 	 * Initializes the new frame.
 	 * 
-	 * @param width
-	 *            Frame width.
-	 * @param height
-	 *            Frame height.
+	 * @param width  Frame width.
+	 * @param height Frame height.
 	 */
 	public Frame(final int width, final int height) {
 		setSize(width, height);
@@ -50,8 +47,7 @@ public class Frame extends JFrame {
 	/**
 	 * Sets current screen.
 	 * 
-	 * @param screen
-	 *            Screen to show.
+	 * @param screen Screen to show.
 	 * @return Return code of the finished screen.
 	 */
 	public final int setScreen(final Screen screen) {

@@ -15,85 +15,84 @@ import screen.Screen;
 import screen.TitleScreen;
 
 /**
- * Implements core game logic.
- * 핵심 게임 로직을 구현합니다.
+ * Implements core game logic. 핵심 게임 로직을 구현합니다.
  * 
  * @author <a href="mailto:RobertoIA1987@gmail.com">Roberto Izquierdo Amo</a>
  * 
  */
 public final class Core {
 
-	/** Width of current screen.
-	 * 현재 화면의 너비입니다. */
+	/**
+	 * Width of current screen. 현재 화면의 너비입니다.
+	 */
 	private static final int WIDTH = 448;
-	/** Height of current screen.
-	 * 현재 화면의 높이입니다. */
+	/**
+	 * Height of current screen. 현재 화면의 높이입니다.
+	 */
 	private static final int HEIGHT = 520;
-	/** Max fps of current screen.
-	 * 현재 화면의 최대 fps. */
+	/**
+	 * Max fps of current screen. 현재 화면의 최대 fps.
+	 */
 	private static final int FPS = 60;
 
-	/** Max lives.
-	 * 최대 목숨 개수 */
+	/**
+	 * Max lives. 최대 목숨 개수
+	 */
 	private static final int MAX_LIVES = 3;
-	/** Levels between extra life.
-	 * 레벨 사이의 추가 목숨 */
+	/**
+	 * Levels between extra life. 레벨 사이의 추가 목숨
+	 */
 	private static final int EXTRA_LIFE_FRECUENCY = 3;
-	/** Total number of levels.
-	 * 총 레벨 수. */
+	/**
+	 * Total number of levels. 총 레벨 수.
+	 */
 	private static final int NUM_LEVELS = 7;
 
 	/* 레벨들의 난이도 설정 */
 	/** Difficulty settings for level 1. */
-	private static final GameSettings SETTINGS_LEVEL_1 =
-			new GameSettings(5, 4, 60, 2000);
+	private static final GameSettings SETTINGS_LEVEL_1 = new GameSettings(5, 4, 60, 2000);
 	/** Difficulty settings for level 2. */
-	private static final GameSettings SETTINGS_LEVEL_2 =
-			new GameSettings(5, 5, 50, 2500);
+	private static final GameSettings SETTINGS_LEVEL_2 = new GameSettings(5, 5, 50, 2500);
 	/** Difficulty settings for level 3. */
-	private static final GameSettings SETTINGS_LEVEL_3 =
-			new GameSettings(6, 5, 40, 1500);
+	private static final GameSettings SETTINGS_LEVEL_3 = new GameSettings(6, 5, 40, 1500);
 	/** Difficulty settings for level 4. */
-	private static final GameSettings SETTINGS_LEVEL_4 =
-			new GameSettings(6, 6, 30, 1500);
+	private static final GameSettings SETTINGS_LEVEL_4 = new GameSettings(6, 6, 30, 1500);
 	/** Difficulty settings for level 5. */
-	private static final GameSettings SETTINGS_LEVEL_5 =
-			new GameSettings(7, 6, 20, 1000);
+	private static final GameSettings SETTINGS_LEVEL_5 = new GameSettings(7, 6, 20, 1000);
 	/** Difficulty settings for level 6. */
-	private static final GameSettings SETTINGS_LEVEL_6 =
-			new GameSettings(7, 7, 10, 1000);
+	private static final GameSettings SETTINGS_LEVEL_6 = new GameSettings(7, 7, 10, 1000);
 	/** Difficulty settings for level 7. */
-	private static final GameSettings SETTINGS_LEVEL_7 =
-			new GameSettings(8, 7, 2, 500);
-	
-	/** Frame to draw the screen on.
-	 * 화면을 그릴 Frame 입니다. */
-	private static Frame frame;
-	/** Screen currently shown.
-	 * 현재 보여지는 화면. */
-	private static Screen currentScreen;
-	/** Difficulty settings list.
-	 * 난이도 설정 목록. */
-	private static List<GameSettings> gameSettings;
-	/** Application logger.
-	 * 애플리케이션 로거. */
-	private static final Logger LOGGER = Logger.getLogger(Core.class
-			.getSimpleName());
-	/** Logger handler for printing to disk.
-	 * 디스크에 프린팅하기 위한 로거 핸들러 */
-	private static Handler fileHandler;
-	/** Logger handler for printing to console.
-	 * 콘솔에 프린팅하기 위한 로거 핸들러 */
-	private static ConsoleHandler consoleHandler;
-
+	private static final GameSettings SETTINGS_LEVEL_7 = new GameSettings(8, 7, 2, 500);
 
 	/**
-	 * Test implementation.
-	 * 테스트 구현.
+	 * Frame to draw the screen on. 화면을 그릴 Frame 입니다.
+	 */
+	private static Frame frame;
+	/**
+	 * Screen currently shown. 현재 보여지는 화면.
+	 */
+	private static Screen currentScreen;
+	/**
+	 * Difficulty settings list. 난이도 설정 목록.
+	 */
+	private static List<GameSettings> gameSettings;
+	/**
+	 * Application logger. 애플리케이션 로거.
+	 */
+	private static final Logger LOGGER = Logger.getLogger(Core.class.getSimpleName());
+	/**
+	 * Logger handler for printing to disk. 디스크에 프린팅하기 위한 로거 핸들러
+	 */
+	private static Handler fileHandler;
+	/**
+	 * Logger handler for printing to console. 콘솔에 프린팅하기 위한 로거 핸들러
+	 */
+	private static ConsoleHandler consoleHandler;
+
+	/**
+	 * Test implementation. 테스트 구현.
 	 * 
-	 * @param args
-	 *            Program args, ignored.
-	 *            프로그램 인수, 무시됨.
+	 * @param args Program args, ignored. 프로그램 인수, 무시됨.
 	 */
 	public static void main(final String[] args) {
 		try {
@@ -127,7 +126,7 @@ public final class Core {
 		gameSettings.add(SETTINGS_LEVEL_5);
 		gameSettings.add(SETTINGS_LEVEL_6);
 		gameSettings.add(SETTINGS_LEVEL_7);
-		
+
 		GameState gameState;
 
 		int returnCode = 1;
@@ -138,8 +137,7 @@ public final class Core {
 			case 1:
 				// Main menu.
 				currentScreen = new TitleScreen(width, height, FPS);
-				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
-						+ " title screen at " + FPS + " fps.");
+				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT + " title screen at " + FPS + " fps.");
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing title screen.");
 				break;
@@ -147,35 +145,26 @@ public final class Core {
 				// Game & score.
 				do {
 					// One extra live every few levels.
-					boolean bonusLife = gameState.getLevel()
-							% EXTRA_LIFE_FRECUENCY == 0
+					boolean bonusLife = gameState.getLevel() % EXTRA_LIFE_FRECUENCY == 0
 							&& gameState.getLivesRemaining() < MAX_LIVES;
-					
-					currentScreen = new GameScreen(gameState,
-							gameSettings.get(gameState.getLevel() - 1),
-							bonusLife, width, height, FPS);
-					LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
-							+ " game screen at " + FPS + " fps.");
+
+					currentScreen = new GameScreen(gameState, gameSettings.get(gameState.getLevel() - 1), bonusLife,
+							width, height, FPS);
+					LOGGER.info("Starting " + WIDTH + "x" + HEIGHT + " game screen at " + FPS + " fps.");
 					frame.setScreen(currentScreen);
 					LOGGER.info("Closing game screen.");
 
 					gameState = ((GameScreen) currentScreen).getGameState();
 
-					gameState = new GameState(gameState.getLevel() + 1,
-							gameState.getScore(),
-							gameState.getLivesRemaining(),
-							gameState.getBulletsShot(),
-							gameState.getShipsDestroyed());
+					gameState = new GameState(gameState.getLevel() + 1, gameState.getScore(),
+							gameState.getLivesRemaining(), gameState.getBulletsShot(), gameState.getShipsDestroyed());
 
-				} while (gameState.getLivesRemaining() > 0
-						&& gameState.getLevel() <= NUM_LEVELS);
+				} while (gameState.getLivesRemaining() > 0 && gameState.getLevel() <= NUM_LEVELS);
 
-				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
-						+ " score screen at " + FPS + " fps, with a score of "
-						+ gameState.getScore() + ", "
-						+ gameState.getLivesRemaining() + " lives remaining, "
-						+ gameState.getBulletsShot() + " bullets shot and "
-						+ gameState.getShipsDestroyed() + " ships destroyed.");
+				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT + " score screen at " + FPS + " fps, with a score of "
+						+ gameState.getScore() + ", " + gameState.getLivesRemaining() + " lives remaining, "
+						+ gameState.getBulletsShot() + " bullets shot and " + gameState.getShipsDestroyed()
+						+ " ships destroyed.");
 				currentScreen = new ScoreScreen(width, height, FPS, gameState);
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing score screen.");
@@ -183,8 +172,7 @@ public final class Core {
 			case 3:
 				// High scores.
 				currentScreen = new HighScoreScreen(width, height, FPS);
-				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
-						+ " high score screen at " + FPS + " fps.");
+				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT + " high score screen at " + FPS + " fps.");
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing high score screen.");
 				break;
@@ -200,16 +188,14 @@ public final class Core {
 	}
 
 	/**
-	 * Constructor, not called.
-	 * 호출되지 않은 생성자.
+	 * Constructor, not called. 호출되지 않은 생성자.
 	 */
 	private Core() {
 
 	}
 
 	/**
-	 * Controls access to the logger.
-	 * logger에 대한 액세스를 제어합니다.
+	 * Controls access to the logger. logger에 대한 액세스를 제어합니다.
 	 * 
 	 * @return Application logger.
 	 */
@@ -218,8 +204,7 @@ public final class Core {
 	}
 
 	/**
-	 * Controls access to the drawing manager.
-	 * drawing manager에 대한 액세스를 제어합니다.
+	 * Controls access to the drawing manager. drawing manager에 대한 액세스를 제어합니다.
 	 * 
 	 * @return Application draw manager.
 	 */
@@ -228,8 +213,7 @@ public final class Core {
 	}
 
 	/**
-	 * Controls access to the input manager.
-	 * input manager에 대한 액세스를 제어합니다.
+	 * Controls access to the input manager. input manager에 대한 액세스를 제어합니다.
 	 * 
 	 * @return Application input manager.
 	 */
@@ -238,8 +222,7 @@ public final class Core {
 	}
 
 	/**
-	 * Controls access to the file manager.
-	 * input manager에 대한 액세스를 제어합니다.
+	 * Controls access to the file manager. input manager에 대한 액세스를 제어합니다.
 	 * 
 	 * @return Application file manager.
 	 */
@@ -248,11 +231,9 @@ public final class Core {
 	}
 
 	/**
-	 * Controls creation of new cooldowns.
-	 * 새로운 재사용 대기시간 생성을 제어합니다.
+	 * Controls creation of new cooldowns. 새로운 재사용 대기시간 생성을 제어합니다.
 	 * 
-	 * @param milliseconds
-	 *            Duration of the cooldown.
+	 * @param milliseconds Duration of the cooldown.
 	 * @return A new cooldown.
 	 */
 	public static Cooldown getCooldown(final int milliseconds) {
@@ -260,19 +241,14 @@ public final class Core {
 	}
 
 	/**
-	 * Controls creation of new cooldowns with variance.
-	 * variance가 있는 새로운 재사용 대기시간 생성을 제어합니다.
+	 * Controls creation of new cooldowns with variance. variance가 있는 새로운 재사용 대기시간
+	 * 생성을 제어합니다.
 	 * 
-	 * @param milliseconds
-	 *            Duration of the cooldown.
-	 *            재사용 대기시간.
-	 * @param variance
-	 *            Variation in the cooldown duration.
-	 *            재사용 대기시간의 variance.
+	 * @param milliseconds Duration of the cooldown. 재사용 대기시간.
+	 * @param variance     Variation in the cooldown duration. 재사용 대기시간의 variance.
 	 * @return A new cooldown with variance.
 	 */
-	public static Cooldown getVariableCooldown(final int milliseconds,
-			final int variance) {
+	public static Cooldown getVariableCooldown(final int milliseconds, final int variance) {
 		return new Cooldown(milliseconds, variance);
 	}
 }

@@ -1,8 +1,8 @@
 package engine;
 
 /**
- * Implements an object that stores the state of the game between levels.
- * 레벨 사이의 게임 상태를 저장하는 object를 구현합니다.
+ * Implements an object that stores the state of the game between levels. 레벨 사이의
+ * 게임 상태를 저장하는 object를 구현합니다.
  * 
  * @author <a href="mailto:RobertoIA1987@gmail.com">Roberto Izquierdo Amo</a>
  * 
@@ -23,19 +23,13 @@ public class GameState {
 	/**
 	 * Constructor.
 	 * 
-	 * @param level
-	 *            Current game level.
-	 * @param score
-	 *            Current score.
-	 * @param livesRemaining
-	 *            Lives currently remaining.
-	 * @param bulletsShot
-	 *            Bullets shot until now.
-	 * @param shipsDestroyed
-	 *            Ships destroyed until now.
+	 * @param level          Current game level.
+	 * @param score          Current score.
+	 * @param livesRemaining Lives currently remaining.
+	 * @param bulletsShot    Bullets shot until now.
+	 * @param shipsDestroyed Ships destroyed until now.
 	 */
-	public GameState(final int level, final int score,
-			final int livesRemaining, final int bulletsShot,
+	public GameState(final int level, final int score, final int livesRemaining, final int bulletsShot,
 			final int shipsDestroyed) {
 		this.level = level;
 		this.score = score;
